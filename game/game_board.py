@@ -8,6 +8,19 @@ players = ["X", "O"]
 human = players[0]
 ai = players[1]
 
+# Game Options
+modes = {
+    "Hard": "Mode Details:\n"
+            "You will play against an AI that uses the Minimax Alpha Beta Pruning Algorithm\n"
+            "to make the best move possible.\n"
+            "You won\'t win, the best thing you can do is a tie!",
+    "Easy": "Mode Details:\n"
+            "You will play against an AI that randomly chooses its next move.",
+    "2 Players": "Mode Details:\n"
+                 "You can play with your friend in a friendly game of Tic Tac Toe."
+}
+current_mode_index = 0
+
 
 def print_board_console():
     for x in range(board_length):
@@ -18,16 +31,19 @@ def print_board_console():
 
 
 def make_move_human(index: int):
-    board[index] = human
-    print_board_console()
-    winner = check_winner()
-    if winner == "":
-        print("AI made a move:")
-        make_best_move_ai()
-    elif winner == "tie":
-        print("Game tied!")
+    if index < board_length and board[index] == "":
+        board[index] = human
+        print_board_console()
+        winner = check_winner()
+        if winner == "":
+            print("AI made a move:")
+            make_best_move_ai()
+        elif winner == "tie":
+            print("Game tied!")
+        else:
+            print(winner, "has won the game!")
     else:
-        print(winner, "has won the game!")
+        print("Invalid move!")
 
 
 def make_best_move_ai():
@@ -110,3 +126,9 @@ def get_scores(player: str):
     # Tie = 0
     elif player == "tie":
         return 0
+
+
+def get_mode_details(mode_index: int):
+    global current_mode_index
+    current_mode_index = mode_index
+    return modes[list(modes.keys())[mode_index]]
