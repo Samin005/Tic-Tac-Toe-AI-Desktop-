@@ -7,6 +7,7 @@ board_length = len(board)
 players = ["X", "O"]
 human = players[0]
 ai = players[1]
+current_player = players[0]
 
 # Game Options
 modes = {
@@ -20,6 +21,13 @@ modes = {
                  "You can play with your friend in a friendly game of Tic Tac Toe."
 }
 current_mode_index = 0
+initial_game_bottom_text = [
+    "The AI let's you go first out of pity.",
+    "Your can go first.",
+    current_player + "'s turn."
+]
+game_status_text = ""
+is_game_over = False
 
 
 def print_board_console():
@@ -30,19 +38,23 @@ def print_board_console():
             print(board[x], end=", ")
 
 
+def update_current_player():
+    global current_player
+    if current_player == players[0]:
+        current_player = players[1]
+    elif current_player == players[1]:
+        current_player = players[0]
+
+
 def make_move_human(index: int):
+    global game_status_text, is_game_over
     if index < board_length and board[index] == "":
-        board[index] = human
+        board[index] = current_player
         print_board_console()
-        winner = check_winner()
-        if winner == "":
-            print("AI made a move:")
-            make_best_move_ai()
-        elif winner == "tie":
-            print("Game tied!")
-        else:
-            print(winner, "has won the game!")
+        run_after_moves_checks()
+        return index
     else:
+        game_status_text = "Invalid move!"
         print("Invalid move!")
 
 
@@ -61,11 +73,26 @@ def make_best_move_ai():
                 best_move_index = index
     board[best_move_index] = ai
     print_board_console()
+    run_after_moves_checks()
+    return best_move_index
+
+
+def run_after_moves_checks():
+    global game_status_text, is_game_over
     winner = check_winner()
-    if winner == "tie":
+    if winner == "":
+        if current_player == players[0]:
+            game_status_text = players[1] + "'s turn."
+        elif current_player == players[1]:
+            game_status_text = players[0] + "'s turn."
+    elif winner == "tie":
+        game_status_text = "Game tied!"
         print("Game tied!")
+        is_game_over = True
     elif winner != "":
+        game_status_text = winner + " has won the game!"
         print(winner, "has won the game!")
+        is_game_over = True
 
 
 def find_match(index_1: int, index_2: int, index_3: int):
@@ -132,3 +159,10 @@ def get_mode_details(mode_index: int):
     global current_mode_index
     current_mode_index = mode_index
     return modes[list(modes.keys())[mode_index]]
+
+
+def reset_board():
+    global board, is_game_over, current_player
+    board = [''] * board_size * board_size
+    is_game_over = False
+    current_player = players[0]

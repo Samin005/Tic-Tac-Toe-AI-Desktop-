@@ -6,12 +6,18 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>599</width>
-    <height>515</height>
+    <width>1200</width>
+    <height>960</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Tic Tac Toe-AI (Desktop)</string>
+  </property>
+  <property name="windowOpacity">
+   <double>0.990000000000000</double>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
@@ -55,6 +61,9 @@
               </item>
               <item row="1" column="1">
                <widget class="QPushButton" name="pushButton_startGame">
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
                 <property name="text">
                  <string>Start Game!</string>
                 </property>
@@ -130,8 +139,8 @@
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>501</width>
-                      <height>306</height>
+                      <width>1102</width>
+                      <height>751</height>
                      </rect>
                     </property>
                     <layout class="QGridLayout" name="gridLayout_6">
@@ -173,6 +182,9 @@ You won't win, the best thing you can do is a tie!</string>
           </layout>
          </widget>
          <widget class="QWidget" name="page_game">
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
           <layout class="QGridLayout" name="gridLayout_8">
            <item row="0" column="0">
             <widget class="QFrame" name="frame_game">
@@ -196,8 +208,25 @@ You won't win, the best thing you can do is a tie!</string>
                 </property>
                </spacer>
               </item>
-              <item row="1" column="0" colspan="2">
+              <item row="0" column="0">
+               <widget class="QPushButton" name="pushButton_quit">
+                <property name="text">
+                 <string>Quit</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="2">
+               <widget class="QPushButton" name="pushButton_reset">
+                <property name="text">
+                 <string>Reset Game</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0" colspan="3">
                <widget class="QFrame" name="frame_gameBoard">
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
                 <property name="frameShape">
                  <enum>QFrame::StyledPanel</enum>
                 </property>
@@ -206,7 +235,7 @@ You won't win, the best thing you can do is a tie!</string>
                 </property>
                 <layout class="QGridLayout" name="gridLayout_10">
                  <item row="1" column="1">
-                  <widget class="QPushButton" name="pushButton_gameBoard_5">
+                  <widget class="QPushButton" name="pushButton_gameBoard_4">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                      <horstretch>0</horstretch>
@@ -239,13 +268,16 @@ You won't win, the best thing you can do is a tie!</string>
                      <verstretch>0</verstretch>
                     </sizepolicy>
                    </property>
+                   <property name="styleSheet">
+                    <string notr="true"/>
+                   </property>
                    <property name="text">
                     <string/>
                    </property>
                   </widget>
                  </item>
                  <item row="2" column="2">
-                  <widget class="QPushButton" name="pushButton_gameBoard_10">
+                  <widget class="QPushButton" name="pushButton_gameBoard_8">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                      <horstretch>0</horstretch>
@@ -284,7 +316,7 @@ You won't win, the best thing you can do is a tie!</string>
                   </widget>
                  </item>
                  <item row="2" column="1">
-                  <widget class="QPushButton" name="pushButton_gameBoard_8">
+                  <widget class="QPushButton" name="pushButton_gameBoard_7">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                      <horstretch>0</horstretch>
@@ -310,7 +342,7 @@ You won't win, the best thing you can do is a tie!</string>
                   </widget>
                  </item>
                  <item row="1" column="2">
-                  <widget class="QPushButton" name="pushButton_gameBoard_9">
+                  <widget class="QPushButton" name="pushButton_gameBoard_5">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                      <horstretch>0</horstretch>
@@ -325,14 +357,7 @@ You won't win, the best thing you can do is a tie!</string>
                 </layout>
                </widget>
               </item>
-              <item row="0" column="0">
-               <widget class="QPushButton" name="pushButton_quit">
-                <property name="text">
-                 <string>Quit</string>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="0" colspan="2">
+              <item row="2" column="0" colspan="3">
                <widget class="QLabel" name="label_gameBottomText">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
@@ -362,7 +387,7 @@ You won't win, the best thing you can do is a tie!</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>599</width>
+     <width>1200</width>
      <height>22</height>
     </rect>
    </property>
