@@ -71,8 +71,12 @@ def make_move(btn: QtWidgets.QPushButton):
     if move_index_player1 is not None:
         update_button(btn=btn)
         update_board_after_move()
-        if game_board.current_mode_index == 0:
+        if game_board.current_mode_index == 0 and not game_board.is_game_over:
             move_index_player2 = game_board.make_best_move_ai()
+            update_button(btn=get_button(move_index_player2))
+            update_board_after_move()
+        elif game_board.current_mode_index == 1 and not game_board.is_game_over:
+            move_index_player2 = game_board.make_random_move_ai()
             update_button(btn=get_button(move_index_player2))
             update_board_after_move()
     ui.label_gameBottomText.setText(game_board.game_status_text)

@@ -1,5 +1,6 @@
-import math
 from . import minimax
+import math
+import random
 
 board_size = 3
 board = [''] * board_size * board_size
@@ -75,6 +76,22 @@ def make_best_move_ai():
     print_board_console()
     run_after_moves_checks()
     return best_move_index
+
+
+def make_random_move_ai():
+    empty_cells = list()
+    for x in range(board_length):
+        if board[x] == "":
+            empty_cells.append(x)
+    empty_cells_length = len(empty_cells)
+    if empty_cells_length > 0:
+        random_index = random.randint(0, len(empty_cells)-1)
+    else:
+        random_index = 0
+    random_move_index = empty_cells[random_index]
+    board[random_move_index] = ai
+    run_after_moves_checks()
+    return random_move_index
 
 
 def run_after_moves_checks():
