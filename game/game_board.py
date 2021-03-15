@@ -28,6 +28,7 @@ initial_game_bottom_text = [
     current_player + "'s turn."
 ]
 game_status_text = ""
+winner_cell_indexes = (0, 1, 2)
 is_game_over = False
 
 
@@ -56,7 +57,7 @@ def make_move_human(index: int):
         return index
     else:
         game_status_text = "Invalid move!"
-        print("Invalid move!")
+        print(game_status_text)
 
 
 def make_best_move_ai():
@@ -104,16 +105,18 @@ def run_after_moves_checks():
             game_status_text = players[0] + "'s turn."
     elif winner == "tie":
         game_status_text = "Game tied!"
-        print("Game tied!")
+        print(game_status_text)
         is_game_over = True
     elif winner != "":
         game_status_text = winner + " has won the game!"
-        print(winner, "has won the game!")
+        print(game_status_text)
         is_game_over = True
 
 
 def find_match(index_1: int, index_2: int, index_3: int):
+    global winner_cell_indexes
     if board[index_1] == board[index_2] and board[index_2] == board[index_3] and board[index_1] != "":
+        winner_cell_indexes = (index_1, index_2, index_3)
         return board[index_1]
 
 

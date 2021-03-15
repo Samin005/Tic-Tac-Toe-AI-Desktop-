@@ -1,5 +1,4 @@
 from game import game_board
-import timeit
 import sys
 from PyQt5 import QtWidgets
 from gui import Ui_MainWindow
@@ -62,7 +61,9 @@ button_styles = {
     game_board.players[0]: "background-color: #6eb1ff;\n"
                            "color: white;",
     game_board.players[1]: "background-color: #ff7373;\n"
-                           "color: white;"
+                           "color: white;",
+    "winner": "background-color: #89fc83;\n"
+                           "color: black;"
 }
 
 
@@ -91,6 +92,9 @@ def update_button(btn: QtWidgets.QPushButton):
 def update_board_after_move():
     game_board.update_current_player()
     if game_board.is_game_over:
+        for btn_index in game_board.winner_cell_indexes:
+            btn = get_button(btn_index)
+            btn.setProperty("styleSheet", button_styles["winner"])
         disable_all_buttons()
 
 
@@ -129,11 +133,3 @@ def get_button(button_index):
 
 MainWindow.show()
 sys.exit(app.exec_())
-#
-# start = timeit.default_timer()
-#
-# game_board.print_board_console()
-# game_board.make_best_move_ai()
-#
-# stop = timeit.default_timer()
-# print('Time: ', stop - start)
