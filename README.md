@@ -15,4 +15,4 @@ Make sure Python 3+ is installed. Then go to the game directory and open cmd/ter
 ### Screenshots  
 ![image](https://user-images.githubusercontent.com/34473594/110958283-c0441900-8376-11eb-9dc0-759c2ca5da29.png)  
 ![image](https://user-images.githubusercontent.com/34473594/110958411-dfdb4180-8376-11eb-9724-3f450565be76.png)  
-![image](https://user-images.githubusercontent.com/34473594/110958729-35175300-8377-11eb-9be1-18a642ed5ff7.png)  
+![image](https://user-images.githubusercontent.com/34473594/111169150-e82cba00-85cc-11eb-867c-5d20b23712b3.png)  
