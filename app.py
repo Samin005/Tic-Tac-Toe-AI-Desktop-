@@ -92,9 +92,10 @@ def update_button(btn: QtWidgets.QPushButton):
 def update_board_after_move():
     game_board.update_current_player()
     if game_board.is_game_over:
-        for btn_index in game_board.winner_cell_indexes:
-            btn = get_button(btn_index)
-            btn.setProperty("styleSheet", button_styles["winner"])
+        if game_board.game_status_text != "Game tied!":
+            for btn_index in game_board.winner_cell_indexes:
+                btn = get_button(btn_index)
+                btn.setProperty("styleSheet", button_styles["winner"])
         disable_all_buttons()
 
 
